@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block css %}
+    <link href="{% static 'Portfolio/css/common.css' %}?ver=7" rel="stylesheet"/>
+    <link href="{% static 'Portfolio/css/p_common.css' %}?ver=7" media="all and (min-device-aspect-ratio: 5/4)" rel="stylesheet"/>
+    <link href="{% static 'Portfolio/css/m_common.css' %}?ver=7" media="all and (max-device-aspect-ratio: 5/4)" rel="stylesheet"/>
+    {% endblock %}
+    {% block js %}
+    <script src="{% static 'Portfolio/js/jquery-3.1.1.min.js' %}"></script>
+    <script src="{% static 'Portfolio/js/common.js' %}?ver=0"></script>
+    {% endblock %}
+    {% block title %}
+    <title>
+        {% block intitle %}
+        Portfolio
+        {% endblock %}
+    </title>
+    {% endblock %}
+</head>
+<body>
+    {% block menu %}
+    <div class="menu">
+        <div class="menubutton">
+            <img class="menubutton" src="{% static 'Portfolio/img/hamberger_button.png' %}"/>
+            <img class="menubutton" src="{% static 'Portfolio/img/x_button.png' %}"/>
+        </div> <!-- menubutton -->
+        <div class="menutable">
+            <table>
+                <tr>
+                    {% for menu in menuList %}
+                    <td class="centertd">
+                        <a href="{% url menu|lower|cut:' ' %}">{{ menu }}</a>
+                    </td>
+                    {% endfor %}
+                </tr>
+            </table>
+        </div>	<!-- menutable -->
+        {% for key, subs in menuList.items %}
+            {% ifequal subs nullList %}
+        <div class="submenutable display-none-div">
+            {% else %}
+        <div class="submenutable">
+            {% endifequal %}
+            <table>
+                <tr>
+                {% for subMenu in subs %}
+                    <td><a href="{% url key|lower|cut:' ' %}#{{ subMenu|lower }}">{{subMenu}}</a></td>
+                {% endfor %}
+                </tr>
+            </table>
+        </div>	<!-- submenutable -->
+        {% endfor %}
+    </div> <!-- menu -->
+    {% endblock %}
+    {% block incontent %}
+    <div class="incontent">
+        으아아아! 발락 이 자식...!
+    </div> <!-- incontent -->
+    {% endblock %}
+    {% block footer %}
+    <div class="footer">
+        <span>
+            <table>
+                <tr>
+                    <!--<td class="logo" rowspan="2"><img src="{% static 'Portfolio/img/logo.png' %}"/></td>-->
+                    <th>e-mail</th><td>: jinaidy93@gmail.com</td>
+                    <td class="padding-left-td" rowspan="2">&copy 2016 Sejin Jeon. All Rights Reserved.</td>
+                </tr>
+                <tr>
+                    <th>facebook</th><td>: <a href="https://facebook.com/jinaidy">fb.com/jinaidy</a></td>
+                </tr>
+            </table>
+        </span>
+    </div>
+    {% endblock %}
+</body> <!-- It's actually not the error. It's because of the if statement on submenutable div -->
+</html>

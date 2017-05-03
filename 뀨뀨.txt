@@ -1,0 +1,2 @@
+cd C:\Users\sejin\PycharmProjects\Env_Portfolio\Portfolio
+python manage.py runserver

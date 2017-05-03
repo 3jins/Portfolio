@@ -1,0 +1,71 @@
+{% extends "Portfolio/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: Works
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/works_intro.css' %}?ver=2" rel="stylesheet">
+<link href="{% static 'Portfolio/css/p_works_intro.css' %}?ver=2" media="all and (min-device-aspect-ratio: 5/4)" rel="stylesheet">
+<link href="{% static 'Portfolio/css/m_works_intro.css' %}?ver=2" media="all and (max-device-aspect-ratio: 5/4)" rel="stylesheet">
+<link href="{% static 'Portfolio/css/common_twofold.css' %}?ver=1" rel="stylesheet">
+<link href="{% static 'Portfolio/css/p_common_twofold.css' %}?ver=1" media="all and (min-device-aspect-ratio: 5/4)" rel="stylesheet">
+<link href="{% static 'Portfolio/css/m_common_twofold.css' %}?ver=1" media="all and (max-device-aspect-ratio: 5/4)" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'Portfolio/js/common_twofold.js' %}?ver=1"></script>
+<script src="{% static 'Portfolio/js/works_intro.js' %}?ver=0"></script>
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <div class="representative">
+        <div class="fix fixed">
+            <div class="wrapper">
+                <img src="{% static 'Portfolio/img/'|add:menuList.Works.0|add:'.png' %}"/>
+                <h2>{{menuList.Works.0}}</h2>
+            </div>
+        </div>
+        {% for subs in menuList.Works %}
+            {% ifnotequal forloop.counter 1 %}
+        <div class="fix nonfixed">
+            <div class="wrapper">
+                <img src="{% static 'Portfolio/img/'|add:subs|add:'.png' %}"/>
+                <h2>{{subs}}</h2>
+            </div>
+        </div>
+            {% endifnotequal %}
+        {% endfor %}
+    </div><!-- representative-->
+
+    <div class="content">
+        {% for key, subs in thumbnails.items %}
+        <a name="{{key}}">
+            <div class="thumbnail">
+                {% for work in subs %}
+                <a href="{% url 'works' %}?id={{work.id}}">
+                    <div class="work">
+                        <span class="date">{{ work.date }}</span>
+                        <h4>{{ work.title }}</h4>
+                        <div><img src="{% static 'Portfolio/img/works/'|add:work.pic %}"/></div>
+                        <span class="text">{{ work.text }}</span>
+                    </div>
+                </a>
+                {% endfor %}
+            </div>
+        </a>
+        {% endfor %}
+    </div><!-- content -->
+</div>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}

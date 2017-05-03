@@ -1,0 +1,39 @@
+@keyframes menuSlideDown {
+    from { width:0; }
+    to { width:100%; }
+}
+@keyframes menuSlideUp {
+    from { width:100%; visibility:visible;}
+    to { width:0; }
+}
+
+/* menu */
+div.menubutton {
+    left:0;
+}
+div.menubutton img.menubutton {
+    height:3em;
+    margin:3em;
+}
+div.menutable {
+	height:100%;
+	background:rgba(255,255,255,0.8);
+}
+div.menutable table {
+    vertical-align:middle;
+	height:100%;
+}
+div.menutable table td{
+    display:block;
+    padding-top:1.5em;
+	font-size:3.5em;
+    width:100%;
+	height:25%;
+}
+div.submenutable table{
+    margin:0 auto;
+}
+div.submenutable table td{
+    font-size:1em;
+    width:12em;
+}

@@ -1,0 +1,33 @@
+div.representative{
+	height:100%;
+	float:left;
+}
+div.representative div.fix{
+	text-align:center;
+}
+div.representative div.fix div.wrapper{
+    height:12em;
+}
+div.representative div.fix div.wrapper img{
+    /*display:inline-block;*/
+}
+div.representative div.fixed{
+    position:fixed;
+    z-index:10;
+}
+div.representative div.nonfixed{
+    position:relative;
+    z-index:0;
+}
+
+div.content{
+	float:right;
+}
+div.content div{
+	padding:1em;
+	line-height:1.5em;
+	z-index:20;
+}
+div.content div h4{
+    margin:0;
+}

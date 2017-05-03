@@ -1,0 +1,123 @@
+{% extends "Portfolio/base_comment.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: Notes
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+{% if meta.isSelected %}
+<link href="{% static 'Portfolio/css/common_viewcontent.css' %}?ver=2" rel="stylesheet">
+{% endif %}
+<link href="{% static 'Portfolio/css/notes.css' %}?ver=7" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+{% if meta.isSelected %}
+<script src="{% static 'Portfolio/js/common_viewcontent.js' %}?ver=0"></script>
+{% endif %}
+<script src="{% static 'Portfolio/js/notes.js' %}?ver=3"></script>
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <div class="category">
+        <h4>Category</h4>
+        {% ifequal meta.thisCategory 0 %}
+        <p class="withUnderline"><a href="{% url 'notes' %}">&gt All</a></p>
+        {% else %}
+        <p class="withUnderline"><a href="{% url 'notes' %}">All</a></p>
+        {% endifequal %}
+        {% for category in categories %}
+            {% ifequal category.code meta.thisCategory %}
+            <p><a href="{% url 'notes' %}?category={{ category.code }}">&gt {{ category.title }}</a></p>
+            {% else %}
+            <p><a href="{% url 'notes' %}?category={{ category.code }}">{{ category.title }}</a></p>
+            {% endifequal %}
+        {% endfor %}
+        <div class="searchBox">
+            <form method="POST">
+                {% csrf_token %}
+                <table><tr>
+                    <td>
+                        <input name="query" type="text" placeholder="Search by title";/>
+                    </td>
+                    <td>
+                        <input type="image" alt="search" src="{% static 'Portfolio/img/notes/search.png' %}"/>
+                    </td>
+                </tr></table>
+            </form>
+        </div>
+    </div><!-- category -->
+    <div class="main">
+        {% if meta.isSelected %}
+        <table class="incontent"><td>
+            <div class="wrapper">
+                <div class="content">
+                    <h1>{{ title }}</h1>
+                    {% for content in contents %}
+                        {% if content.type == 1 %}
+                            <h2>{{ content.context }}</h2>
+                        {% elif content.type == 2 %}
+                            <p>{{ content.context }}</p>
+                        {% elif content.type == 3 %}
+                            <div class="centerdiv">
+                                <img src="{% static 'Portfolio/img/works/'|add:id|add:'/'|add:content.context %}" width="{{ content.width }}"/>
+                            </div>
+                        {% elif content.type == 4 %}
+                            <div class="centerdiv">
+                                <video preload="none" width="{{ content.width }}" controls>
+                                    <source src="{% static 'Portfolio/clip/works/'|add:id|add:'/'|add:content.context|add:'.mp4' %}" type="video/mp4"></source>
+                                    <source src="{% static 'Portfolio/clip/works/'|add:id|add:'/'|add:content.context|add:'.webm' %}" type="video/webm"></source>
+                                </video>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                    {{ block.super }}
+                <div class="space"></div>
+                    {% include './fragment_back.html' %}
+                <div class="space"></div>
+                </div><!-- content -->
+            </div><!-- wrapper -->
+        </td></table>
+        {% else %}
+        <table class="listOfContents">
+            <tr>
+                <th>title</th>
+                <th>date</th>
+            </tr>
+            {% for thumbnail in thumbnails %}
+            <tr>
+                <td><a href="{% url 'notes' %}?contentId={{ thumbnail.id }}">{{ thumbnail.title }}</a></td>
+                <td>{{ thumbnail.date }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <div class="pages">
+            {% if meta.isTherePrevPages %}
+            <a href="{% url 'notes' %}?currentPage={{ meta.firstPrevPage }}">◀</a>
+            {% endif %}
+            {% for page in meta.currentPages %}
+                {% ifequal page meta.currentPage %}
+            <b>{{ page }}</b>
+                {% else %}
+            <a href="{% url 'notes' %}?currentPage={{ page }}">{{ page }}</a>
+                {% endifequal %}
+            {% endfor %}
+            {% if meta.isThereNextPages %}
+            <a href="{% url 'notes' %}?currentPage={{ meta.firstNextPage }}">▶</a>
+            {% endif %}
+        </div>
+        {% endif %}
+        {% if request.session.admin_id %}
+        <a href="{% url 'write_note' %}?flag=1">글쓰기</a> 삭제/수정은 귀찮아 구현안해 고칠거면 집가서 디비 건드리고 급하면 엄마보고 팀뷰어 켜달라 해
+        {% endif %}
+    </div><!-- main-->
+</div>
+{% endblock %}

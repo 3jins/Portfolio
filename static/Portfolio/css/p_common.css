@@ -1,0 +1,25 @@
+@keyframes menuSlideDown {
+    from { height:0; }
+    to { height:4em; }
+}
+@keyframes menuSlideUp {
+    from { height:4em; visibility:visible;}
+    to { height:0; }
+}
+
+/* menu */
+div.menubutton {
+    right:0;
+}
+div.menubutton img.menubutton {
+    height:1.4em;
+    margin:1.3em;
+}
+div.menutable {
+	height:4em;
+	background:rgba(255,255,255,0.6);
+}
+div.menutable table td{
+	font-size:1.1em;
+	width:20%;
+}

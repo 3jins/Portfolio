@@ -1,0 +1,69 @@
+.incontent{
+    width:100%;
+    text-align:center;
+}
+div.paragraph div.wrapper {
+    margin:0 auto;
+    width:90%;
+    position:relative;
+    background-size:100% 100%;
+    background-repeat:no-repeat;
+    height:85%;
+}
+div.paragraph:nth-child(odd) div.wrapper{
+    background-color:#33333c;
+    color:white;
+}
+div.paragraph:nth-child(even) div.wrapper{
+    background-color:#ccccd3;
+    color:black;
+}
+
+div.paragraph table {
+    width:100%;
+    height:100%;
+}
+/*div.paragraph div.wrapper img#welcome{
+    display:inline;
+    width:60%;
+}*/
+
+/*div.paragraph div.wrapper div.main div p.maintext:nth-of-type(1){
+    margin-bottom:0.7em;
+    font-size:7em;
+}
+div.paragraph div.wrapper div.main div p.maintext:nth-of-type(2){
+    font-size:3.2em;
+}
+div.paragraph div.wrapper div.main div p.maintext:nth-of-type(3){
+    font-size:2.5em;
+}
+div.paragraph div.wrapper div.main div p.subtext{
+    font-size:1em;
+    width:388px;
+    line-height:1.2em;
+    text-align:left;
+}*/
+
+div.paragraph div.welcometomazone {
+    background-image:url('../img/welcome_to_my_zone.png');
+}
+div.paragraph div.projectEye {
+    background-image:url('../img/baby_eye.png');
+}
+div.paragraph div.messageinabottle {
+    background-image:url('../img/message_in_a_bottle.jpg');
+}
+div.paragraph div.wrapper div.filter {
+    background-color:rgba(255,255,255,0.5);
+    color:black;
+    height:100%;
+}
+
+div.wrapper div.warp{
+    position:absolute;
+    bottom:0;
+    text-align:center;
+    width:100%;
+    margin:1em 0;
+}

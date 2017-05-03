@@ -1,0 +1,11 @@
+div.menu{
+    margin-top:-10em;
+}
+div.loginBox{
+    margin:10em auto;
+    border:solid brown 8px;
+    width:50%;
+    text-align:center;
+    padding:1em;
+    border-radius:2em;
+}

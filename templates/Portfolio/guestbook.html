@@ -1,0 +1,33 @@
+{% extends "Portfolio/base_comment.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: Guestbook
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/guestbook.css' %}?ver=9" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <div class="intro">
+        <img src="{% static 'Portfolio/img/guestbook/guestbook.png' %}"/>
+        <p>If you have something to tell me, leave a message here.</p>
+        <p>Always all you are welcome.</p>
+    </div>
+    {{ block.super }}
+</div>
+{% endblock %}
+
+
+

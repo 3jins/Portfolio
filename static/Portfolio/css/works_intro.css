@@ -1,0 +1,17 @@
+div.representative div.fix{
+}
+
+div.content div.thumbnail a{
+    text-decoration:none;
+    color:black;
+}
+div.content div.thumbnail div.work div{
+    text-align:center;
+}
+div.content div.thumbnail div.work div img{
+    height:15em;
+}
+div.content div.thumbnail div.work span.date{
+    font-size:0.9em;
+    color:#555;
+}

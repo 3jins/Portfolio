@@ -1,0 +1,35 @@
+{% extends "Portfolio/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: admin
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/admin_login.css' %}?ver=1" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'Portfolio/js/admin_login.js' %}?ver=0"></script>
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <div class="loginBox">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="히히"/>
+        </form>
+        {% ifnotequal error 'none' %}
+        <p>{{ error }}</p>
+        {% endifnotequal %}
+    </div>
+</div>
+{% endblock %}

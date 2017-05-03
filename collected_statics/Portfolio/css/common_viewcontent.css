@@ -1,0 +1,30 @@
+table.incontent{
+    width:100%;
+}
+div.wrapper {
+    width:90%;
+    margin:2em auto;
+    padding-top:1em;
+    background-color:#33333c;
+    color:white;
+}
+div.wrapper div.content {
+    margin:2em;
+}
+div.wrapper div.content h2{
+    margin-top:2em;
+}
+div.wrapper video{
+    border: 1px white solid;
+}
+div.wrapper div.space{
+    height:3em;
+}
+
+div.back a{
+    color:#bbf;
+    text-decoration:none;
+    font-weight:bold;
+    font-size:1.2em;
+}
+

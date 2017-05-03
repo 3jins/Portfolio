@@ -1,0 +1,15 @@
+div.incontent{
+    text-align:center;
+    background-color:#eef;
+}
+div.intro {
+    padding-top:3em;
+}
+div.intro img{
+    width:20em;
+    border-radius: 1em;
+}
+div.comment {
+    width:60%;
+}
+

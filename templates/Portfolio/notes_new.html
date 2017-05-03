@@ -1,0 +1,43 @@
+{% extends "Portfolio/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: Notes
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/notes_new.css' %}?ver=1" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'Portfolio/js/notes_new.js' %}?ver=3"></script>
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <form method="post">
+        {% csrf_token %}
+        <div class="paragraph">
+            <label for="category">카테고리:</label>
+                <select id="category">
+                {% for category in categories %}
+                    <option value="{{ category.code }}">{{ category.title }}</option>
+                {% endfor %}
+                </select>
+            <label for="title">제목:</label>
+                <input id="title" type="text"/>
+            <input class="hannom" type="button" value="소제목"/>
+            <input class="dushigi" type="button" value="글"/>
+            <input class="seoksam" type="button" value="사진"/>
+            <input class="neoguri" type="button" value="영상"/>
+        </div>
+        <input type="submit" value="완썽"/>
+    </form>
+</div>
+{% endblock %}

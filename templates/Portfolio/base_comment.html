@@ -1,0 +1,109 @@
+{% extends "Portfolio/base.html" %}
+{% load staticfiles %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/common_comment.css' %}?ver=4" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'Portfolio/js/common_comment.js' %}?ver=0"></script>
+{% endblock %}
+
+{% block incontent %}
+<div>
+    <!--<div id="disqus_thread"></div>-->
+    <!--<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>-->
+    <div class="comment">
+        <form method="post">
+            <input id="flag" name="flag" type="hidden" value="1"/>
+            <input id="aim" name="aim" type="hidden"/>
+            <input id="aimEmail" name="aim_email" type="hidden"/>
+            <div class="comment_meta">
+                <table>
+                    <tr>
+                        <td>{{ meta.num }} comments</td>
+                        {% ifequal meta.login 1 %}
+                        <td><a href="{% url 'logout'%}">logout</a></td>
+                        {% endifequal %}
+                    </tr>
+                </table>
+            </div> <!-- comment_meta -->
+            {% ifequal meta.login 1 %}
+            <div class="comment_write">
+                <div>
+                    <p>
+                        <img src="{{ account.picture }}"/>
+                    </p>
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p>
+                        <input type="submit" value="upload"/>
+                    </p>
+                </div>
+            </div> <!-- comment_write -->
+            {% else %}
+            <div class="comment_login">
+                <p>
+                    Login as
+                    <a href="{% url 'start_google_auth'%}">
+                        <img src="{% static 'Portfolio/img/comment/google.png' %}"/>
+                    </a>
+                    or
+                    <a href="#" onclick="alert('It\'s under construction now...')">
+                        <img src="{% static 'Portfolio/img/comment/facebook.png' %}"/>
+                    </a>
+                    to write comments.
+                </p>
+            </div> <!-- comment_login -->
+            {% endifequal %}
+            <div class="comment_list">
+                {% if meta.num == 0 and meta.login == 1%}
+                <p>There is no comment yet.</p>
+                {% else %}
+                    {% for comment in comments %}
+                <div>
+                    <input class="commentId" value="{{ comment.id }}" type="hidden"/>
+                    <input class="commentorEmail" value="{{ comment.commentorEmail }}" type="hidden"/>
+                    <table>
+                        <tr>
+                            <td>
+                                <img src="{%static comment.picture %}"/>
+                            </td>
+                            <td colspan="2">    <!-- The reason it has a colspan is this td to be fit with the form of reply which appears when you click reply button -->
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <h5>{{ comment.name }}</h5>
+                                            {% ifequal comment.editDate None %}
+                                            <span>&nbsp&nbsp&nbsp{{ comment.date }}</span>
+                                            {% else %}
+                                            <span>&nbsp&nbsp&nbsp editted in {{ comment.editDate }}</span>
+                                            {% endifequal %}
+                                        </td>
+                                        <td>
+                                        {% ifequal account.email comment.commentorEmail %}
+                                            <!--<img class="img_reply" src="{% static 'Portfolio/img/comment/reply.png' %}"/>-->
+                                            <img class="img_edit" src="{% static 'Portfolio/img/comment/edit.png' %}"/>
+                                            <img class="img_delete" src="{% static 'Portfolio/img/comment/delete_button.png' %}"/>
+                                        {% else %}
+                                            <!--<img class="img_reply" src="{% static 'Portfolio/img/comment/reply.png' %}"/>-->
+                                            <img class="img_edit" src="{% static 'Portfolio/img/comment/edit.png' %}" style="display:none"/>
+                                            <img class="img_delete" src="{% static 'Portfolio/img/comment/delete_button.png' %}" style="display:none"/>
+                                        {% endifequal %}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p>{{ comment.comment }}</p>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                    {% endfor %}
+                {% endif %}
+            </div> <!-- comment_list -->
+        </form>
+    </div> <!-- comment -->
+</div>
+{% endblock %}

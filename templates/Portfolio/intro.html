@@ -1,0 +1,123 @@
+{% extends "Portfolio/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: Intro
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/intro.css' %}?ver=7" rel="stylesheet">
+<link href="{% static 'Portfolio/css/p_intro.css' %}?ver=7" media="all and (min-device-aspect-ratio: 5/4)" rel="stylesheet">
+<link href="{% static 'Portfolio/css/m_intro.css' %}?ver=7" media="all and (max-device-aspect-ratio: 5/4)"  rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'Portfolio/js/intro.js' %}?ver=11"></script>
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <div class="paragraph">
+        <a name="greeting">
+            <table><td>
+                <div class="wrapper">
+                    <table><td>
+                        <div class="main">
+                            <img src="{% static 'Portfolio/img/notebook.png/' %}"/>
+                            <div>
+                                <!--<p class="maintext">SEJIN</p>-->
+                                <!--<p class="maintext">WHO LOVES</p>-->
+                                <!--<p class="maintext">PROGRAMMING</p>-->
+                                <p class="maintext">HELLO,</p>
+                                <p class="maintext">WORLD! :)</p>
+                                <!--<p class="maintext">:)</p>-->
+                                <p class="subtext">I'm Sejin, a Korean student who majors in computer science engineering. I'm making efforts to become an accomplished web or app developer.</p>
+                            </div>
+                        </div>
+                    </td></table>
+                    <div class="warp">
+                        <a href="#greeting">●</a>
+                        <a href="#welcome">○</a>
+                        <a href="#whatsGoingOn">○</a>
+                        <a href="#news">○</a>
+                    </div>
+                </div><!-- wrapper -->
+            </td></table>
+        </a>
+    </div><!-- main-paragraph -->
+    <div class="paragraph">
+        <a name="welcome">
+            <table><td>
+                <div class="wrapper welcometomazone">
+                    <div class="filter">
+                        <table><td>
+                            <h2>Welcome to my zone!</h2>
+                            <p>As the title of this site Portfolio, this website is made for introducing myself.</p>
+                            <p>If you are one who is finding suitable people for your company, look around my works at 'Works'.</p>
+                            <!--<p class="content">If you are one who is interested in me as a person, look around me at 'Interests'.</p>-->
+                            <p>If you are one who wants to know what I usually think, look around my ideas at 'Notes'.</p>
+                            <p>If you are one who wants to contact me, go to 'Guest Book' and leave a memo.</p>
+                        </td></table>
+                        <div class="warp">
+                            <a href="#greeting">○</a>
+                            <a href="#welcome">●</a>
+                            <a href="#whatsGoingOn">○</a>
+                            <a href="#news">○</a>
+                        </div>
+                    </div><!-- filter -->
+                </div><!-- wrapper -->
+            </td></table>
+        </a>
+    </div>
+    <div class="paragraph">
+        <a name="whatsGoingOn">
+            <table><td>
+                <div class="wrapper projectEye">
+                    <div class="filter">
+                        <table><td>
+                            <h2>What's now going on is...</h2>
+                            <p>The project 'Eye' is launched.</p>
+                            <p>This work will be in collaboration with Hyungsun Song.</p>
+                        </td></table>
+                        <div class="warp">
+                            <a href="#greeting">○</a>
+                            <a href="#welcome">○</a>
+                            <a href="#whatsGoingOn">●</a>
+                            <a href="#news">○</a>
+                        </div>
+                    </div><!-- filter -->
+                </div><!-- wrapper -->
+            </td></table>
+        </a>
+    </div>
+    <div class="paragraph">
+        <a name="news">
+            <table><td>
+                <div class="wrapper messageinabottle">
+                    <div class="filter">
+                        <table><td>
+                            <h2>News!</h2>
+                            <p>My portfolio website finally opened! (But contents are not filled completely yet)</p>
+                            <p>I'm 군필 now. :-)</p>
+                            <p>Project Eye will be added to the list of 'works' soon...</p>
+                            <p><del>Epikhigh is working on their 9th album and the title is 'Pieces, Part Two' !</del></p>
+                        </td></table>
+                        <div class="warp">
+                            <a href="#greeting">○</a>
+                            <a href="#welcome">○</a>
+                            <a href="#whatsGoingOn">○</a>
+                            <a href="#news">●</a>
+                        </div>
+                    </div>
+                </div><!-- wrapper -->
+            </td></table>
+        </a>
+    </div>
+</div>
+{% endblock %}

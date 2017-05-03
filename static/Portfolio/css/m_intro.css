@@ -1,0 +1,48 @@
+div.paragraph div.wrapper div.main {
+    margin:0 auto;
+    text-align:center;
+    width:32em;
+}
+div.paragraph div.wrapper div.main img{
+    width:10em;
+    margin-bottom:2em;
+    float:right;
+}
+div.paragraph div.wrapper div.main div{
+}
+div.paragraph div.wrapper div.main div p.maintext{
+    line-height:0;
+    padding:0;
+    margin-top:0.5em;
+    font-weight:bold;
+}
+div.paragraph div.wrapper div.main div p.maintext:nth-of-type(1){
+    margin-bottom:0.9em;
+    font-size:5.5em;
+    float:left;
+}
+div.paragraph div.wrapper div.main div p.maintext:nth-of-type(2){
+    font-size:4em;
+    float:left;
+}
+div.paragraph div.wrapper div.main div p.subtext{
+    font-size:1.5em;
+    width:21em;
+    line-height:1.5em;
+    margin:0 auto;
+}
+div.wrapper div.warp a{
+    color:inherit;
+    text-decoration:none;
+    font-size:4em;
+    margin:0 0.1em;
+}
+
+div.paragraph:not(:first-child) div.wrapper h2{
+    font-size:2.5em;
+}
+div.paragraph:not(:first-child) div.wrapper p{
+    font-size:2.2em;
+    width:80%;
+    margin:1em auto;
+}

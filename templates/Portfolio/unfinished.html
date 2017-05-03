@@ -1,0 +1,32 @@
+{% extends "Portfolio/base.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: Sorry (_ _)
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/unfinished.css' %}?ver=2" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'Portfolio/js/unfinished.js' %}?ver=0"></script>
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <table><td>
+        <div class="wrapper">
+            <table><td>
+                Sorry.<br/> it's under construction now... TT
+            </td></table>
+        </div>
+    </td></table>
+</div>
+{% endblock %}

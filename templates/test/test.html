@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/common.css" type="text/css" rel="stylesheet">
+    <link href="css/<?=$css?>" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="js/common.js"></script>
+    <script type="text/javascript" src="js/<?=$js?>"></script>
+    <title>Title</title>
+</head>
+<body onresize="holdHorizontalPosition()">
+    <form action="auth_lv2.php" method="post">
+        <div class="profile">
+            <img id="profileImg" src="imgs/느낌이딱왔어_아이유.jpg"/>
+            <legend id="lv2" for="lv2input">Lv.2
+                <input name="ans" id="lv2input" type="text"/>
+                <input type="submit" value="입장"/>
+            </legend>
+        </div>
+    </form>
+</body>
+</html>

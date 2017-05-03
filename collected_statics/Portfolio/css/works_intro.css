@@ -1,0 +1,27 @@
+div.representative div.fix{
+    background-color:#22222c;
+    color:white;
+}
+div.representative div.fix:nth-of-type(2){
+    background-color:#22222c;
+    color:white;
+}
+div.representative div.fix:nth-of-type(3){
+    background-color:#22222c;
+    color:white;
+}
+
+div.content div.thumbnail a{
+    text-decoration:none;
+    color:black;
+}
+div.content div.thumbnail div.work div{
+    text-align:center;
+}
+div.content div.thumbnail div.work div img{
+    height:15em;
+}
+div.content div.thumbnail div.work span.date{
+    font-size:0.9em;
+    color:#555;
+}

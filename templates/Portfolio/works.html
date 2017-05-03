@@ -1,0 +1,57 @@
+{% extends "Portfolio/base_comment.html" %}
+{% load staticfiles %}
+
+{% block title %}
+<title>
+    {% block intitle %}
+        {{ block.super }} ::: Works
+    {% endblock %}
+</title>
+{% endblock %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'Portfolio/css/common_viewcontent.css' %}?ver=3" rel="stylesheet">
+<link href="{% static 'Portfolio/css/m_common_viewcontent.css' %}?ver=3" media="all and (max-device-aspect-ratio: 5/4)" rel="stylesheet">
+<link href="{% static 'Portfolio/css/p_common_viewcontent.css' %}?ver=3" media="all and (min-device-aspect-ratio: 5/4)" rel="stylesheet">
+{% endblock %}
+
+{% block js %}
+{{ block.super }}
+<script src="{% static 'Portfolio/js/common_viewcontent.js' %}?ver=2"></script>
+<script src="{% static 'Portfolio/js/works.js' %}?ver=0"></script>
+{% endblock %}
+
+{% block incontent %}
+<div class="incontent">
+    <table class="incontent"><td>
+        <div class="wrapper">
+            <div class="content">
+                {% include './fragment_back.html' %}
+                {% for content in contents %}
+                    {% if content.type == 1 %}
+                        <h2>{{ content.context }}</h2>
+                    {% elif content.type == 2 %}
+                        <p>{{ content.context }}</p>
+                    {% elif content.type == 3 %}
+                        <div class="centerdiv">
+                            <img src="{% static 'Portfolio/img/works/'|add:id|add:'/'|add:content.context %}" width="{{ content.width }}"/>
+                        </div>
+                    {% elif content.type == 4 %}
+                        <div class="centerdiv">
+                            <video preload="none" width="{{ content.width }}" controls>
+                                <source src="{% static 'Portfolio/clip/works/'|add:id|add:'/'|add:content.context|add:'.mp4' %}" type="video/mp4"></source>
+                                <source src="{% static 'Portfolio/clip/works/'|add:id|add:'/'|add:content.context|add:'.webm' %}" type="video/webm"></source>
+                            </video>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                {{ block.super }}
+            <div class="space"></div>
+                {% include './fragment_back.html' %}
+            <div class="space"></div>
+            </div><!-- content -->
+        </div><!-- wrapper -->
+    </td></table>
+</div>
+{% endblock %}
