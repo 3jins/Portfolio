@@ -1,14 +1,4 @@
 div.representative div.fix{
-    background-color:#22222c;
-    color:white;
-}
-div.representative div.fix:nth-of-type(2){
-    background-color:#22222c;
-    color:white;
-}
-div.representative div.fix:nth-of-type(3){
-    background-color:#22222c;
-    color:white;
 }
 
 div.content div.thumbnail a{

@@ -1,5 +1,4 @@
 div.representative{
-	width:40%;
 	height:100%;
 	float:left;
 }
@@ -11,21 +10,17 @@ div.representative div.fix div.wrapper{
 }
 div.representative div.fix div.wrapper img{
     /*display:inline-block;*/
-    width:10em;
 }
 div.representative div.fixed{
-    width:40%;
     position:fixed;
     z-index:10;
 }
 div.representative div.nonfixed{
-    width:100%;
     position:relative;
     z-index:0;
 }
 
 div.content{
-	width:60%;
 	float:right;
 }
 div.content div{

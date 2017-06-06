@@ -23,13 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'e5fw!qqt!s6at*o1f7(#+4acixc)1k=d1x-ihzp^md%@z-9k6='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     # '175.194.115.171',
     'sejin.sytes.net',  # ddns address
     '127.0.0.1',        # localhost
     'localhost',
+    # '10.0.75.1',        # docker host
 ]
 
 
@@ -75,6 +76,7 @@ TEMPLATES = [
     },
 ]
 
+# WSGI_APPLICATION = 'conf.wsgi.application'
 WSGI_APPLICATION = 'conf.wsgi.application'
 
 

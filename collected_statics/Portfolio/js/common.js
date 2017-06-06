@@ -1,3 +1,5 @@
+var filter = "win16|win32|win64|macintel|mac|";
+
 var revealOrHideMenu = function(reveal){
     var menutable = $('div.menutable');
     if(reveal) {
@@ -57,17 +59,18 @@ var closeSesame = function(idx, event){
 }
 
 $(function () {
-    if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
-        alert(
-            'Design for mobile is under construction now. Please connect with PC. T_T\n'+
-            '아직 스마트폰 해상도에서는 디자인이 개판입니다. PC로 접속해주세요ㅠㅠ\n\n'+
-            'Do not forget to enter port number.\n'+
-            '포트 번호까지 쳐야 정상적으로 접속됩니다.'
-        );
-    }
+//    if(navigator.userAgent.match(/Android|Mobile|iP(hone|od|ad)|BlackBerry|IEMobile|Kindle|NetFront|Silk-Accelerated|(hpw|web)OS|Fennec|Minimo|Opera M(obi|ini)|Blazer|Dolfin|Dolphin|Skyfire|Zune/)){
+//        alert(
+//            'Design for mobile is under construction now. Please connect with PC. T_T\n'+
+//            '아직 스마트폰 해상도에서는 디자인이 개판입니다. PC로 접속해주세요ㅠㅠ\n\n'+
+//            'Do not forget to enter port number.\n'+
+//            '포트 번호까지 쳐야 정상적으로 접속됩니다.'
+//        );
+//    }
 
     sesameIndex = 0;
     emasesIndex = 0;
+
 
     $('div.menubutton img.menubutton:eq(0)').click(function() {
         revealOrHideMenu(true);
@@ -75,20 +78,25 @@ $(function () {
     $('div.menubutton img.menubutton:eq(1)').click(function() {
         revealOrHideMenu(false);
     });
+
     $('div.menutable a').hover(function() {
         //revealOrHideSubmenu(true);
     });
 
-    $('div.menutable a').each(function(index, item){
-        $(item).hover(function() {
-            revealSubmenu(index);
-        }, function() {
-        });
-    });
-    $('div.menu').hover(function() {
-    }, function() {
-           hideSubmenu();
-    });
+    if(navigator.platform) {
+        if(filter.indexOf(navigator.platform.toLowerCase())>=0) {
+            $('div.menutable a').each(function(index, item){
+                $(item).hover(function() {
+                    revealSubmenu(index);
+                }, function() {
+                });
+            });
+            $('div.menu').hover(function() {
+            }, function() {
+                   hideSubmenu();
+            });
+        }
+    }
 
     $(document).keypress(function(e) {
         sesameIndex = openSesame(sesameIndex, e);

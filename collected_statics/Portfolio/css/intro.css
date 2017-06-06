@@ -23,28 +23,11 @@ div.paragraph table {
     width:100%;
     height:100%;
 }
-div.paragraph div.wrapper img#welcome{
+/*div.paragraph div.wrapper img#welcome{
     display:inline;
     width:60%;
-}
-div.paragraph div.wrapper div.main {
-    margin:0 auto;
-    max-width:40em;
-    width:40em;
-}
-div.paragraph div.wrapper div.main img{
-    float:right;
-    width:18em;
-}
-div.paragraph div.wrapper div.main div{
-    float:left;
-}
-div.paragraph div.wrapper div.main div p.maintext{
-    line-height:0;
-    padding:0;
-    margin-top:0.5em;
-    font-weight:bold;
-}
+}*/
+
 /*div.paragraph div.wrapper div.main div p.maintext:nth-of-type(1){
     margin-bottom:0.7em;
     font-size:7em;
@@ -61,31 +44,18 @@ div.paragraph div.wrapper div.main div p.subtext{
     line-height:1.2em;
     text-align:left;
 }*/
-div.paragraph div.wrapper div.main div p.maintext:nth-of-type(1){
-    margin-bottom:1em;
-    font-size:5.5em;
-}
-div.paragraph div.wrapper div.main div p.maintext:nth-of-type(2){
-    margin-bottom:1em;
-    font-size:4em;
-}
-div.paragraph div.wrapper div.main div p.maintext:nth-of-type(3){
-    font-size:2.5em;
-}
-div.paragraph div.wrapper div.main div p.subtext{
-    font-size:1em;
-    width:20em;
-    line-height:1.5em;
-    text-align:left;
-}
+
 div.paragraph div.welcometomazone {
     background-image:url('../img/welcome_to_my_zone.png');
 }
 div.paragraph div.projectEye {
     background-image:url('../img/baby_eye.png');
 }
+div.paragraph div.messageinabottle {
+    background-image:url('../img/message_in_a_bottle.jpg');
+}
 div.paragraph div.wrapper div.filter {
-    background-color:rgba(255,255,255,0.4);
+    background-color:rgba(255,255,255,0.5);
     color:black;
     height:100%;
 }
@@ -96,9 +66,4 @@ div.wrapper div.warp{
     text-align:center;
     width:100%;
     margin:1em 0;
-}
-div.wrapper div.warp a{
-    color:inherit;
-    text-decoration:none;
-    font-size:1.4em;
 }

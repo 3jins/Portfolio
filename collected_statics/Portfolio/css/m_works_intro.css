@@ -1,0 +1,18 @@
+div.representative div.fix{
+    background-color:transparent;
+    color:transparent;
+    visible:hidden;
+}
+div.content div.thumbnail a div.work h4, div.content div.thumbnail a div.work span{
+    font-size:2em;
+    line-height:1.2em;
+}
+div.content div.thumbnail a div.work span.date{
+    font-size:1.8em;
+}
+div.content div.thumbnail a:nth-child(odd) div.work{
+    background-color:#eaeaef;
+}
+div.content div.thumbnail a:nth-child(even) div.work{
+    background-color:#e0e0ef;
+}

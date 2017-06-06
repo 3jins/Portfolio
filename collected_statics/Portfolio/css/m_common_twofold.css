@@ -1,0 +1,16 @@
+div.representative div.fix div.wrapper img{
+    /*display:inline-block;*/
+    width:0;
+}
+div.representative{
+	width:0;
+}
+div.representative div.fixed{
+    width:0;
+}
+div.representative div.nonfixed{
+    width:0;
+}
+div.content{
+	width:100%;
+}

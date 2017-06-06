@@ -49,7 +49,8 @@ div.paragraph div.welcometomazone {
     background-image:url('../img/welcome_to_my_zone.png');
 }
 div.paragraph div.projectEye {
-    background-image:url('../img/baby_eye.png');
+    /*background-image:url('../img/baby_eye.png');*/
+    background-image:url('../img/cat_fight.jpeg');
 }
 div.paragraph div.messageinabottle {
     background-image:url('../img/message_in_a_bottle.jpg');

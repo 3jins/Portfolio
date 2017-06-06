@@ -1,0 +1,14 @@
+@keyframes menuSlideDown {
+    from { height:0; }
+    to { height:4em; }
+}
+@keyframes menuSlideUp {
+    from { height:4em; visibility:visible;}
+    to { height:0; }
+}
+div.menubutton {
+    right:0;
+}
+div.menubutton img.menubutton {
+    height:1.4em;
+}
