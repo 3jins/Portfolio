@@ -65,7 +65,7 @@
                         {% if content.type == 1 %}
                             <h2>{{ content.context }}</h2>
                         {% elif content.type == 2 %}
-                            <p>{{ content.context }}</p>
+                            <p>{{ content.context|linebreaksbr }}</p>
                         {% elif content.type == 3 %}
                             <div class="centerdiv">
                                 <img src="{% static 'Portfolio/img/works/'|add:id|add:'/'|add:content.context %}" width="{{ content.width }}"/>

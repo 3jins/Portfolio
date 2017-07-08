@@ -1,1 +1,2 @@
 settings.py    # There is sensitive information *-.-*
+db.sqlite3     # dbdb
