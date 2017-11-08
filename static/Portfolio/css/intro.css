@@ -47,11 +47,11 @@ div.paragraph div.wrapper div.main div p.subtext{
 
 div.paragraph div.welcometomazone {
     /*background-image:url('../img/welcome_to_my_zone.png');*/
-    background-image:url('../img/welcome.jpg');
+    background-image:url('../img/forest_entrance.jpg');
 }
 div.paragraph div.projectEye {
-    /*background-image:url('../img/baby_eye.png');*/
-    background-image:url('../img/cat_fight.jpg');
+    background-image:url('../img/grid-AI.jpg');
+    /*background-image:url('../img/cat_fight.jpg');*/
 }
 div.paragraph div.messageinabottle {
     background-image:url('../img/message_in_a_bottle.jpg');
